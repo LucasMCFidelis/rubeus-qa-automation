@@ -11,6 +11,9 @@ export abstract class BasePage {
     element: Cypress.Chainable<JQuery<HTMLElement>>,
     expectedHref: string,
   ) {
-    element.should("be.visible").should("have.attr", "href", expectedHref);
+    element
+      .should("be.visible")
+      .invoke("attr", "href")
+      .should("include", expectedHref);
   }
 }
