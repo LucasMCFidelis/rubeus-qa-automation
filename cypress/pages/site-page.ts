@@ -16,6 +16,38 @@ class SitePage extends BasePage {
   public header() {
     return cy.get(SITE_PAGE_SELECTORS.header);
   }
+
+  public libraryLink() {
+    return cy.get(SITE_PAGE_SELECTORS.libraryLink);
+  }
+
+  public carouselNextButton() {
+    return cy.get(SITE_PAGE_SELECTORS.carouselNext);
+  }
+
+  public carouselPrevButton() {
+    return cy.get(SITE_PAGE_SELECTORS.carouselPrev);
+  }
+
+  public carouselDots() {
+    return cy.get(SITE_PAGE_SELECTORS.carouselDots);
+  }
+
+  public carouselDotActive() {
+    return this.carouselDots().find(SITE_PAGE_SELECTORS.carouselDotActive);
+  }
+
+  public carouselCurrentSlide() {
+    return cy.get(SITE_PAGE_SELECTORS.carouselCurrentSlide);
+  }
+
+  public getSlideSrcs(): Array<string> {
+    const slideSrcs: Array<string> = [];
+    cy.get(".mySlides img").each((img) => {
+      slideSrcs.push(img.attr("src")!);
+    });
+    return slideSrcs;
+  }
 }
 
 export default new SitePage();
