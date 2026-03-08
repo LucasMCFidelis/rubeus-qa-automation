@@ -1,0 +1,15 @@
+export const LINKS = {
+  CERTIFICACAO: "https://qualidade.apprbs.com.br/certificacao",
+  SITE: "https://qualidade.apprbs.com.br/site",
+  WHATSAPP_WEB: "https://web.whatsapp.com",
+  RUBEUS: "https://rubeus.com.br",
+  RUBEUS_INSTITUCIONAL: "https://rubeus.com.br/sobre-a-rubeus/",
+  RUBEUS_ANALISTA: "https://cursos.rubeus.com.br/analista-rubeus/",
+  RUBEUS_PRIVACIDADE: "https://rbacademy.apprbs.com.br/politica-de-privacidade",
+  ZENDESK_BIBLIOTECA: "https://crmrubeus.zendesk.com",
+  LINKEDIN: "https://linkedin.com/company/rubeus",
+  FACEBOOK: "https://facebook.com/CanalRubeus",
+  TWITTER: "https://x.com/CanalRubeus",
+  YOUTUBE: "https://youtube.com/@Rubeus",
+  INSTAGRAM: "https://instagram.com/canalrubeus",
+};
