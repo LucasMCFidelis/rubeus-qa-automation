@@ -135,6 +135,10 @@ cypress/
 │   ├── certificacao.cy.ts
 │   └── site.cy.ts
 ├── pages/                      # Page Objects
+│   ├── components/             # Componentes de página
+│   │   ├── subscribe-form-first-step.ts
+│   │   └── subscribe-form-second-step.ts
+│   ├── base-page.ts
 │   ├── certificacao-page.ts
 │   └── site-page.ts
 └── support/
@@ -142,13 +146,25 @@ cypress/
     │   └── links.ts            # URLs e links utilizados nos testes
     ├── enums/
     │   └── tag.ts              # Enum de tags disponíveis
+    ├── factories/
+    │   └── subscribe-form-factory.ts  # Factories de dados de teste
     ├── selectors/              # Seletores organizados por página
     │   ├── certificacao-page-selectors.ts
     │   └── site-page-selectors.ts
+    ├── types/
+    │   └── subscribe-form-data.ts     # Tipos compartilhados
     ├── commands.ts             # Comandos customizados do Cypress
     └── e2e.ts                  # Configuração global de suporte
 cypress.config.ts               # Configuração principal do Cypress
 ```
+
+---
+
+## Documentação de testes
+
+A gestão dos casos de teste e report de bugs está documentada na planilha abaixo:
+
+[📋 Gestão de Testes QA — Rubeus](https://docs.google.com/spreadsheets/d/1RyGojeJBRcXwhmXZDCf6TDV7KkdSQuvAeKauEXXsJv8/edit?usp=sharing)
 
 ---
 
