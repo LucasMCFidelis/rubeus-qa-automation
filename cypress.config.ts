@@ -6,6 +6,7 @@ export default defineConfig({
     baseUrl: "https://qualidade.apprbs.com.br",
     supportFile: "cypress/support/e2e.ts",
     specPattern: "cypress/e2e/**/*.cy.ts",
+    screenshotOnRunFailure: true,
     setupNodeEvents(on, config) {
       on("file:preprocessor", tagify(config));
     },
