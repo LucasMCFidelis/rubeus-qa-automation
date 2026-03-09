@@ -16,8 +16,10 @@ describe("Página Certificação", () => {
     [Tag.REGRESSION],
     "CT-002 — Validar envio da primeira etapa do formulário de inscrição com todos os dados válidos",
     () => {
-      certificacaoPage.submitSubscribeFirstStep(subscribeFormFactory.valid());
-      certificacaoPage.subscribeFormSecondStep().should("be.visible");
+      certificacaoPage.firstStep.submit(subscribeFormFactory.valid());
+      certificacaoPage.secondStep
+        .subscribeFormSecondStep()
+        .should("be.visible");
     },
   );
 
@@ -25,13 +27,13 @@ describe("Página Certificação", () => {
     [Tag.REGRESSION],
     "CT-003 — Validar bloqueio do envio da primeira etapa do formulário de inscrição quando o e-mail não é informado",
     () => {
-      certificacaoPage
-        .subscribeNameInput()
+      certificacaoPage.firstStep
+        .nameInput()
         .type(subscribeFormFactory.valid().name);
-      certificacaoPage
-        .subscribePhoneNumberInput()
+      certificacaoPage.firstStep
+        .phoneNumberInput()
         .type(subscribeFormFactory.valid().phone);
-      certificacaoPage.subscribeSubmitButton().should("be.disabled");
+      certificacaoPage.firstStep.submitButton().should("be.disabled");
     },
   );
 
@@ -39,10 +41,8 @@ describe("Página Certificação", () => {
     [Tag.REGRESSION],
     "CT-004 — Validar bloqueio do envio da primeira etapa do formulário de inscrição com e-mail em formato inválido",
     () => {
-      certificacaoPage.fillSubscribeFormFirstStep(
-        subscribeFormFactory.withInvalidEmail(),
-      );
-      certificacaoPage.subscribeSubmitButton().should("be.disabled");
+      certificacaoPage.firstStep.fill(subscribeFormFactory.withInvalidEmail());
+      certificacaoPage.firstStep.submitButton().should("be.disabled");
       certificacaoPage.validationMessage().should("be.visible");
     },
   );
@@ -51,10 +51,8 @@ describe("Página Certificação", () => {
     [Tag.REGRESSION],
     "CT-005 — Validar bloqueio do envio da primeira etapa do formulário de inscrição com telefone em formato inválido",
     () => {
-      certificacaoPage.fillSubscribeFormFirstStep(
-        subscribeFormFactory.withInvalidPhone(),
-      );
-      certificacaoPage.subscribeSubmitButton().should("be.disabled");
+      certificacaoPage.firstStep.fill(subscribeFormFactory.withInvalidPhone());
+      certificacaoPage.firstStep.submitButton().should("be.disabled");
       certificacaoPage.validationMessage().should("be.visible");
     },
   );

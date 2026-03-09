@@ -1,7 +1,7 @@
-import { SubscribeFormData } from "../types/subscribe-form-data";
+import { SubscribeFormDataFirstStep } from "../types/subscribe-form-data";
 
 export const subscribeFormFactory = {
-  valid(): SubscribeFormData {
+  valid(): SubscribeFormDataFirstStep {
     return {
       name: "Lucas Fidelis",
       email: "lucas@email.com",
@@ -9,7 +9,7 @@ export const subscribeFormFactory = {
     };
   },
 
-  withInvalidEmail(): SubscribeFormData {
+  withInvalidEmail(): SubscribeFormDataFirstStep {
     return {
       name: "Lucas Fidelis",
       email: "emailsemarroba",
@@ -17,7 +17,7 @@ export const subscribeFormFactory = {
     };
   },
 
-  withInvalidPhone(): SubscribeFormData {
+  withInvalidPhone(): SubscribeFormDataFirstStep {
     return {
       name: "Lucas Fidelis",
       email: "lucas@email.com",
