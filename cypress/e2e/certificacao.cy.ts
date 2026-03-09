@@ -14,6 +14,15 @@ describe("Página Certificação", () => {
 
   it(
     [Tag.REGRESSION],
+    "CT-002 — Validar envio da primeira etapa do formulário de inscrição com todos os dados válidos",
+    () => {
+      certificacaoPage.submitSubscribeFirstStep(subscribeFormFactory.valid());
+      certificacaoPage.subscribeFormSecondStep().should("be.visible");
+    },
+  );
+
+  it(
+    [Tag.REGRESSION],
     "CT-003 — Validar bloqueio do envio da primeira etapa do formulário de inscrição quando o e-mail não é informado",
     () => {
       certificacaoPage
@@ -30,7 +39,7 @@ describe("Página Certificação", () => {
     [Tag.REGRESSION],
     "CT-004 — Validar bloqueio do envio da primeira etapa do formulário de inscrição com e-mail em formato inválido",
     () => {
-      certificacaoPage.fillSubscribeForm(
+      certificacaoPage.fillSubscribeFormFirstStep(
         subscribeFormFactory.withInvalidEmail(),
       );
       certificacaoPage.subscribeSubmitButton().should("be.disabled");
@@ -42,11 +51,24 @@ describe("Página Certificação", () => {
     [Tag.REGRESSION],
     "CT-005 — Validar bloqueio do envio da primeira etapa do formulário de inscrição com telefone em formato inválido",
     () => {
-      certificacaoPage.fillSubscribeForm(
+      certificacaoPage.fillSubscribeFormFirstStep(
         subscribeFormFactory.withInvalidPhone(),
       );
       certificacaoPage.subscribeSubmitButton().should("be.disabled");
       certificacaoPage.validationMessage().should("be.visible");
+    },
+  );
+
+  it(
+    [Tag.REGRESSION],
+    "CT-007 — Validar redirecionamento dos botões 'Saiba mais' da seção 'Outros Cursos'",
+    () => {
+      certificacaoPage.otherCoursesLearnMoreButtons().each((button) => {
+        cy.wrap(button)
+          .should("be.visible")
+          .invoke("attr", "href")
+          .should("not.be.empty");
+      });
     },
   );
 

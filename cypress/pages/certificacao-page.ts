@@ -18,8 +18,8 @@ class CertificacaoPage extends BasePage {
     return cy.get(CERTIFICACAO_PAGE_SELECTORS.homeCard);
   }
 
-  public subscribeForm() {
-    return cy.get(CERTIFICACAO_PAGE_SELECTORS.subscribeForm);
+  public subscribeFormFirstStep() {
+    return cy.get(CERTIFICACAO_PAGE_SELECTORS.subscribeFormFirstStep);
   }
 
   public subscribeNameInput() {
@@ -46,15 +46,23 @@ class CertificacaoPage extends BasePage {
     return cy.get(CERTIFICACAO_PAGE_SELECTORS.validationMessage);
   }
 
-  public fillSubscribeForm({ name, email, phone }: SubscribeFormData) {
+  public fillSubscribeFormFirstStep({ name, email, phone }: SubscribeFormData) {
     this.subscribeNameInput().type(name);
     this.subscribeEmailInput().type(email);
     this.subscribePhoneNumberInput().type(phone);
   }
 
-  public submit(formData: SubscribeFormData) {
-    this.fillSubscribeForm(formData);
+  public submitSubscribeFirstStep(formData: SubscribeFormData) {
+    this.fillSubscribeFormFirstStep(formData);
     this.subscribeSubmitButton().click();
+  }
+
+  public subscribeFormSecondStep() {
+    return cy.get(CERTIFICACAO_PAGE_SELECTORS.subscribeFormSecondStep);
+  }
+
+  public otherCoursesLearnMoreButtons() {
+    return cy.get(CERTIFICACAO_PAGE_SELECTORS.otherCoursesLearnMoreButtons);
   }
 
   public facebookLink() {
