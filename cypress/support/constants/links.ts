@@ -9,7 +9,7 @@ export const LINKS = {
   ZENDESK_BIBLIOTECA: "https://crmrubeus.zendesk.com/hc/pt-br",
   LINKEDIN: "https://www.linkedin.com/company/rubeus",
   FACEBOOK: "https://www.facebook.com/CanalRubeus",
-  TWITTER: "https://www.x.com/CanalRubeus",
+  TWITTER: "https://x.com/CanalRubeus",
   YOUTUBE: "https://www.youtube.com/@Rubeus",
   INSTAGRAM: "https://www.instagram.com/canalrubeus",
 };

@@ -2,6 +2,7 @@ import { LINKS } from "../support/constants/links";
 import { SITE_PAGE_SELECTORS } from "../support/selectors/site-page-selectors";
 
 import { BasePage } from "./base-page";
+import { NewsletterForm } from "./components/newsletter-form";
 
 class SitePage extends BasePage {
   public visit() {
@@ -12,6 +13,8 @@ class SitePage extends BasePage {
     this.validateUrl(LINKS.SITE);
     this.header().should("be.visible");
   }
+
+  public newsletter = new NewsletterForm();
 
   public header() {
     return cy.get(SITE_PAGE_SELECTORS.header);
@@ -47,6 +50,56 @@ class SitePage extends BasePage {
       slideSrcs.push(img.attr("src")!);
     });
     return slideSrcs;
+  }
+
+  public headerLinkedinLink() {
+    return cy.get(SITE_PAGE_SELECTORS.headerLinkedinLink);
+  }
+  public headerFacebookLink() {
+    return cy.get(SITE_PAGE_SELECTORS.headerFacebookLink);
+  }
+  public headerTwitterLink() {
+    return cy.get(SITE_PAGE_SELECTORS.headerTwitterLink);
+  }
+  public headerYoutubeLink() {
+    return cy.get(SITE_PAGE_SELECTORS.headerYoutubeLink);
+  }
+  public headerInstagramLink() {
+    return cy.get(SITE_PAGE_SELECTORS.headerInstagramLink);
+  }
+
+  public cardLinkedinLink() {
+    return cy.get(SITE_PAGE_SELECTORS.cardLinkedinLink);
+  }
+  public cardFacebookLink() {
+    return cy.get(SITE_PAGE_SELECTORS.cardFacebookLink);
+  }
+  public cardTwitterLink() {
+    return cy.get(SITE_PAGE_SELECTORS.cardTwitterLink);
+  }
+  public cardYoutubeLink() {
+    return cy.get(SITE_PAGE_SELECTORS.cardYoutubeLink);
+  }
+  public cardInstagramLink() {
+    return cy.get(SITE_PAGE_SELECTORS.cardInstagramLink);
+  }
+
+  public footerFacebookLink() {
+    return cy.get(SITE_PAGE_SELECTORS.footerFacebookLink);
+  }
+  public footerLinkedinLink() {
+    return cy.get(SITE_PAGE_SELECTORS.footerLinkedinLink);
+  }
+  public footerYoutubeLink() {
+    return cy.get(SITE_PAGE_SELECTORS.footerYoutubeLink);
+  }
+  public footerInstagramLink() {
+    return cy.get(SITE_PAGE_SELECTORS.footerInstagramLink);
+  }
+
+  // Footer
+  public privacyPolicyLink() {
+    return cy.get(SITE_PAGE_SELECTORS.privacyPolicyLink);
   }
 }
 
